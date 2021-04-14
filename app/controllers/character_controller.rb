@@ -1,14 +1,30 @@
 class CharacterController < ApplicationController
 
-    get '/characters' do
+    get '/characters' do # index
         @characters=Character.all 
     
         erb :index
     end
 
-    get '/characters/new' do
+    get '/characters/new' do # new
         erb :new
     end 
+
+    post '/characters' do
+        @character = Character.create(:name => params[:name], :gender => params[:gender], :animal? => params[:animal?], :depressed => params[:depressed?])
+        redirect to "/characters/#{character.id}" # new
+    end
+
+    get '/characters/:id' do 
+        @character = Character.find_by_id(params[:id])
+        erb :show 
+    end 
+
+    get '/characters/:id/edit' do  #load edit form
+        @character = Character.find_by_id(params[:id])
+        erb :edit
+    end
+
 
     patch '/characters/:id' do #edit action
         @character = Character.find_by_id(params[:id])
@@ -21,16 +37,12 @@ class CharacterController < ApplicationController
         redirect to "/characters/#{@character.id}"
     end 
 
-    get '/recipes/:id/edit' do  #load edit form
-        @recipe = Recipe.find_by_id(params[:id])
-        erb :edit
-    end
     
     
-    delete '/recipes/:id' do #delete action
-        @recipe = Recipe.find_by_id(params[:id])
-        @recipe.delete
-        redirect to '/recipes'
+    delete '/characters/:id' do #delete action
+        @character = Character.find_by_id(params[:id])
+        @character.delete
+        redirect to '/characters'
     end 
     
 
