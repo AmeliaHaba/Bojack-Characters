@@ -1,0 +1,9 @@
+<h1>Bojack Horseman Characters</h1>
+<% @characters.each do |character| %>
+  <h3>Name: <a href="/characters/<%= character.id %>"><%= character.name %></a></h3>
+  <h4>Gender: <%= character.gender %></h4>
+  <h4>Animal?: <%= character.animal? %></h4>
+  <h4>Depressed?: <%=character.depressed?
+<% end %>
+
+<p><a href="/recipes/new">Create a new character!</a></p>
