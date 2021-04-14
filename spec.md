@@ -2,16 +2,15 @@
 
 Specs:
 - [X] Use Sinatra to build the app
-- [X] Use ActiveRecord for storing information in a database
+- [] Use ActiveRecord for storing information in a database
     - used active record to create tables for each model class created
 - [X] Include more than one model class (e.g. User, Post, Category) 
-    - Created User, Lists, and Shows
+    - Created User, Character 
 - [X] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
-    - A user has many shows through a collection
+    - A user has many characters
 - [X] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
-    - A show belongs to a collection
-    - A collection belongs to a user and a show
-- [X] Include user accounts with unique login attribute (username or email)
+    -Characters belong to a user
+- [] Include user accounts with unique login attribute (username or email)
     - all users have a unique username
 - [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 - [ ] Ensure that users can't modify content created by other users
