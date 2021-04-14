@@ -3,7 +3,7 @@ Character.destroy_all
 
 (1..5).each do |id|
     User.create!(
-       username: Faker::JapaneseMedia::Naruto.character,
+       username: Faker::TvShows::TwinPeaks.character,
        password: "Password"
    
     )

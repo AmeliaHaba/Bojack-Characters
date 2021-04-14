@@ -1,13 +1,13 @@
-class CharacterController < ApplicationController
+class CharacterControllers < ApplicationController
 
     get '/characters' do # index
         @characters=Character.all 
     
-        erb :'character/index'
+        erb :'characters/index'
     end
 
     get '/characters/new' do # new
-        erb :'character/new'
+        erb :'characters/new'
     end 
 
     post '/characters' do
@@ -18,12 +18,12 @@ class CharacterController < ApplicationController
 
     get '/characters/:id' do 
         @character = Character.find_by_id(params[:id])
-        erb :'character/show'
+        erb :'characters/show'
     end 
 
     get '/characters/:id/edit' do  #load edit form
         @character = Character.find_by_id(params[:id])
-        erb :'character/edit'
+        erb :'characters/edit'
     end
 
     patch '/characters/:id' do #edit action
