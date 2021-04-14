@@ -1,7 +1,7 @@
-<h2>Character Name: <%= @character.name %> </h2>
-<h2>Gender: <%= @character.gender%> </h2>
-<h2>Animal: <%= @character.animal? %> </h2>
-<h2>Depressed: <%= @character.depressed? %> </h2>
+<h2>Character Name: <%= @character.name%></h2>
+<h2>Gender: <%= @character.gender%></h2>
+<h2>Animal: <%= @character.animal?%></h2>
+<h2>Depressed: <%= @character.depressed?%></h2>
 
 <form action="/characters/<%= @characters.id %>" method="post">
 	<input type="hidden" name="_method" value="delete">

@@ -1,6 +1,6 @@
 class CharacterControllers < ApplicationController
 
-    get '/characters' do # index
+    get '/characters' do # index #instance for redirecting, render to erb needs to be instance 
         @characters=Character.all 
     
         erb :'characters/index'
