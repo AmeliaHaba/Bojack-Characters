@@ -9,7 +9,7 @@ Character.destroy_all
     )
 end
 
-(1..50).each do |id|
+(1..10).each do |id|
     Character.create!( # this is my model name, creating these instances
        name: Faker::TvShows::BojackHorseman.character,
        gender: ['female', 'male'].sample,
