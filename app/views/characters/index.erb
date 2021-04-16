@@ -1,4 +1,5 @@
 <h2>Bojack Horseman Characters</h2>
+<p><a href="/characters/new">create a new character</a></p>
 <% @characters.each do |character| %>
   <h4>Name: <a href="/characters/<%= character.id %>"><%= character.name %></a></h4>
   <h4>Gender: <%= character.gender %></h4>
@@ -6,4 +7,3 @@
   <h4>Depressed: <%=character.depressed?%></h4>
 <% end %>
 
-<p><a href="/characters/new">create a new character</a></p>
