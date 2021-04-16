@@ -3,7 +3,15 @@
 <h2>Animal: <%= @character.animal?%></h2>
 <h2>Depressed: <%= @character.depressed?%></h2>
 
-<form action="/characters/<%= @characters.id %>" method="post">
-	<input type="hidden" name="_method" value="delete">
+
+<a href="/characters/<%= @character.id %>/edit">edit character</a>
+
+<p> <form action="/characters">
+	<input type="submit" value="back">
+</p></form>
+
+
+<p> <form action="/characters/<%= @character.id %>" method="post">
+	<input type="hidden" name="_method" value="delete"> 
 	<input type="submit" value="delete">
-</form>
+</p> </form>

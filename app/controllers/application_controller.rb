@@ -5,12 +5,19 @@ class ApplicationController < Sinatra::Base # controlling actual app
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
-    enable :sessions 
-    set :sessions_secret, "dianeismyfavorite"
+    set :sessions, true 
+    set :session_secret, "dianeismyfavorite"
+    set :method_override, true
   end
 
+  def redirect_if_not_logged_in
+    if !logged_in?
+      redirect '/'
+    end
+  end 
+
   get "/" do
-    erb :welcome
+    erb :login
   end
 
   get "/login" do
@@ -21,15 +28,12 @@ class ApplicationController < Sinatra::Base # controlling actual app
     user = User.find_by(username: params[:username])
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      redirect "/user/#{user.id}/my_characters"
+      redirect "/characters"
     else
       redirect "/signup"
     end
   end
 
-  get "/failure" do
-    erb :failure
-  end
 
   get "/logout" do
     session.clear
@@ -40,8 +44,8 @@ class ApplicationController < Sinatra::Base # controlling actual app
     def logged_in?
       !!session[:user_id]
     end
-    def current user
-     user.find(session[:user_id])
+    def current_user
+     User.find(session[:user_id])
     end
 
   end
