@@ -3,8 +3,10 @@
 <h2>Animal: <%= @character.animal?%></h2>
 <h2>Depressed: <%= @character.depressed?%></h2>
 
+<p> <form action="/characters/<%= @character.id %>/edit">
+	<input type="submit" value="edit character">
+</p></form>
 
-<a href="/characters/<%= @character.id %>/edit">edit character</a>
 
 <p> <form action="/characters">
 	<input type="submit" value="back">
