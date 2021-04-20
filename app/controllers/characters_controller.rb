@@ -23,21 +23,29 @@ class CharactersController < ApplicationController
     end
 
     get '/characters/:id' do 
-        if logged_in?
-            @character = Character.find_by_id(params[:id])
-            erb :'characters/show'
+        if Character.where(id: params[:id]).exists?
+            if logged_in?
+                @character = Character.find_by_id(params[:id])
+                erb :'characters/show'
+            else
+                redirect to '/'
+            end
         else
             redirect to '/'
         end
     end 
 
     get '/characters/:id/edit' do  #load edit form
-        if logged_in?
-            @character = Character.find_by_id(params[:id])
-            erb :'characters/edit'
+        if Character.where(id: params[:id]).exists?
+            if logged_in?
+                @character = Character.find_by_id(params[:id])
+                erb :'characters/edit'
+            else
+                redirect to '/'
+            end 
         else
             redirect to '/'
-        end 
+        end
     end
 
     patch '/characters/:id' do #edit action
