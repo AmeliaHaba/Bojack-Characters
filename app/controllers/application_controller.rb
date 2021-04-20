@@ -10,12 +10,6 @@ class ApplicationController < Sinatra::Base # controlling actual app
     set :method_override, true
   end
 
-  def redirect_if_not_logged_in
-    if !logged_in?
-      redirect '/'
-    end
-  end 
-
   get "/" do
     erb :login
   end

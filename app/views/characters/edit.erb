@@ -2,7 +2,7 @@
 
 <form action="/characters/<%= @character.id %>" method="post">
   <input id="hidden" type="hidden" name="_method" value="patch">
-  <h3>Is this character still depressed? Or did they go to therapy?</h3>
+  <h3>Is this character still depressed?</h3>
   <input type="radio" name="depressed?" value="true" <%= 'checked' if @character.depressed? == true%> >
   <label for="true">True</label><br>
   <input type="radio" name="depressed?" value="false" <%= 'checked' if @character.depressed? == false%> >
