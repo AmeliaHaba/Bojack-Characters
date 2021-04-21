@@ -3,9 +3,12 @@ require './config/environment'
 class CharactersController < ApplicationController
 
     get '/characters' do # index # instance for redirecting, render to erb needs to be instance 
-        @characters = Character.all 
-    
-        erb :'characters/index'
+       if logged_in?
+            @characters = Character.all 
+            erb :'characters/index'
+       else 
+            redirect to '/failure'
+       end
     end
 
     get '/characters/new' do # new
