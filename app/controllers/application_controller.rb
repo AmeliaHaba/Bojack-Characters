@@ -44,5 +44,9 @@ class ApplicationController < Sinatra::Base # controlling actual app
 
   end
 
+  get "/failure" do
+    erb :failure
+  end
+
 
 end

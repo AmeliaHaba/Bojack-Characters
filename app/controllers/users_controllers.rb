@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
     post '/signup' do
         if params[:username].empty? || params[:password].empty? 
-          redirect to "/"
+          redirect to "/failure"
         else 
           user = User.create(username: params[:username], password: params[:password])
           session[:user_id] = user.id
@@ -21,9 +21,9 @@ class UsersController < ApplicationController
         @user = User.find_by_id(params[:id])
         erb :'users/show'
       else 
-        redirect to "/"
+        redirect to "/failure"
       end
-      
+
     end
 
 end 

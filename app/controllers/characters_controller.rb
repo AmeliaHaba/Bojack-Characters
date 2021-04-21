@@ -12,7 +12,7 @@ class CharactersController < ApplicationController
         if logged_in?
             erb :'characters/new'
         else 
-            redirect to '/'
+            redirect to '/failure'
         end
     end 
 
@@ -28,10 +28,10 @@ class CharactersController < ApplicationController
                 @character = Character.find_by_id(params[:id])
                 erb :'characters/show'
             else
-                redirect to '/'
+                redirect to '/failure'
             end
         else
-            redirect to '/'
+            redirect to '/failure'
         end
     end 
 
@@ -41,10 +41,10 @@ class CharactersController < ApplicationController
                 @character = Character.find_by_id(params[:id])
                 erb :'characters/edit'
             else
-                redirect to '/'
+                redirect to '/failure'
             end 
         else
-            redirect to '/'
+            redirect to '/failure'
         end
     end
 
