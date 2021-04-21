@@ -7,6 +7,10 @@
   <label for="true">True</label><br>
   <input type="radio" name="depressed?" value="false" <%= 'checked' if @character.depressed? == false%> >
   <label for="false">False</label><br>
+  <br>
+  <h3>Did the character change their name?</h3>
+  <p>Name: <input type="text" name="name"></p>
+  <br>
   <input type="submit" value="update">
 </form> 
 
